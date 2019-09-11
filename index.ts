@@ -7,6 +7,8 @@ const server = new Server();
 server.app.use('/user', userRoutes);
 
 
+
+
 mongoose.connect('mongodb://localhost:27017/fotosgram',{
     useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true 
 }, (err) =>{
