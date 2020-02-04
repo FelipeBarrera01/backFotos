@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser'
 import postRoutes from './routes/posts';
 import fileUpload from 'express-fileupload';
+import cors from 'cors';
 const server = new Server();
 
 
@@ -15,6 +16,8 @@ server.app.use(bodyParser.json());
 server.app.use(fileUpload({
     userTempFiles: true
 }));
+//
+server.app.use(cors({origin: true, credentials: true}));
 //
 server.app.use('/user', userRoutes);
 server.app.use('/post', postRoutes);

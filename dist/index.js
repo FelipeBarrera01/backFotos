@@ -9,6 +9,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const posts_1 = __importDefault(require("./routes/posts"));
 const express_fileupload_1 = __importDefault(require("express-fileupload"));
+const cors_1 = __importDefault(require("cors"));
 const server = new server_1.default();
 //body parser
 server.app.use(body_parser_1.default.urlencoded({ extended: true }));
@@ -17,6 +18,8 @@ server.app.use(body_parser_1.default.json());
 server.app.use(express_fileupload_1.default({
     userTempFiles: true
 }));
+//
+server.app.use(cors_1.default({ origin: true, credentials: true }));
 //
 server.app.use('/user', usuario_1.default);
 server.app.use('/post', posts_1.default);
